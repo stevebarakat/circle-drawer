@@ -19,8 +19,8 @@ function Stage() {
 
   return (
     <main onPointerDown={onStageTouched}>
-      {circles.map((circle: Circle) => {
-        return <Circle key={circle?.id} circle={circle} />;
+      {circles.map((circle: Circle, i: number) => {
+        return <Circle key={circle?.id} circle={circle} testid={i + 1} />;
       })}
     </main>
   );

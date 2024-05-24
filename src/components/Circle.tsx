@@ -2,9 +2,10 @@ import { CircleContext } from "@/machine";
 
 type Props = {
   circle: Circle;
+  testid: number;
 };
 
-function Circle({ circle }: Props) {
+function Circle({ circle, testid }: Props) {
   const { send } = CircleContext.useActorRef();
   const isSelected = CircleContext.useSelector(
     (state) => state.context.selectedCircleId === circle?.id
@@ -15,6 +16,7 @@ function Circle({ circle }: Props) {
   return (
     <div
       className="circle"
+      data-testid={`circle-${testid}`}
       style={{
         background: circle.color,
         transform: `translate(${circle.position.x - circle.radius}px, ${
@@ -34,7 +36,6 @@ function Circle({ circle }: Props) {
       }}
       onContextMenu={(e) => {
         e.preventDefault();
-        send({ type: "DELETE_CIRCLE", id: circle.id! });
       }}
     />
   );
