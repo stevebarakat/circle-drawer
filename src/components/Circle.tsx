@@ -2,10 +2,9 @@ import { CircleContext } from "@/machine";
 
 type Props = {
   circle: Circle;
-  testid: number;
 };
 
-function Circle({ circle, testid }: Props) {
+function Circle({ circle }: Props) {
   const { send } = CircleContext.useActorRef();
   const isSelected = CircleContext.useSelector(
     (state) => state.context.selectedCircleId === circle?.id
@@ -16,7 +15,6 @@ function Circle({ circle, testid }: Props) {
   return (
     <div
       className="circle"
-      data-testid={`circle-${testid}`}
       style={{
         background: circle.color,
         transform: `translate(${circle.position.x - circle.radius}px, ${
