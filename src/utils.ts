@@ -4,13 +4,13 @@ export function getCircleById(circles: Circles, id: string | undefined) {
 
 export function getCircleUnderPointer(
   circles: Circles,
-  currentPosition: { x: number; y: number }
+  currentPosition: { x: number; y: number },
 ) {
   return circles.find((circle: Circle) => {
     if (!circle?.position || !circle?.radius) return;
     const d = Math.sqrt(
       Math.pow(circle.position.x - currentPosition.x, 2) +
-        Math.pow(circle.position.y - currentPosition.y, 2)
+        Math.pow(circle.position.y - currentPosition.y, 2),
     );
     return d <= circle.radius;
   });

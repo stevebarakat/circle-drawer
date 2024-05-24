@@ -7,7 +7,7 @@ type Props = {
 function Circle({ circle }: Props) {
   const { send } = CircleContext.useActorRef();
   const isSelected = CircleContext.useSelector(
-    (state) => state.context.selectedCircleId === circle?.id
+    (state) => state.context.selectedCircleId === circle?.id,
   );
 
   if (!circle?.position || !circle?.radius) return;

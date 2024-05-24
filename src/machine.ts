@@ -70,7 +70,7 @@ export const machine = setup({
     "redosExist?": ({ context }) => context.redos.length > 0,
     "circleUnderPointer?": ({ event }) => {
       assertEvent(event, "STAGE_TOUCHED");
-      return !event.circleUnderPointer;
+      return !!event.circleUnderPointer;
     },
     "isSelected?": ({ event }) => {
       assertEvent(event, "START_DRAG");
@@ -300,7 +300,7 @@ export const machine = setup({
             target: "dragging",
 
             actions: {
-              type: "handleAddCircle",
+              type: "handleSelectCircle",
             },
 
             guard: "circleUnderPointer?",
@@ -308,7 +308,7 @@ export const machine = setup({
           {
             target: "dragging",
             actions: {
-              type: "handleSelectCircle",
+              type: "handleAddCircle",
             },
           },
         ],

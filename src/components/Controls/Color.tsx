@@ -5,7 +5,7 @@ import { Pipette } from "lucide-react";
 function Color() {
   const { send } = CircleContext.useActorRef();
   const { circles, selectedCircleId } = CircleContext.useSelector(
-    (state) => state.context
+    (state) => state.context,
   );
   const selectedCircle = getCircleById(circles, selectedCircleId);
   const color = selectedCircle?.color || DEFAULT_CIRCLE_COLOR;

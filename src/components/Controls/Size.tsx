@@ -4,7 +4,7 @@ import { getCircleById } from "@/utils";
 function Size() {
   const { send } = CircleContext.useActorRef();
   const { circles, selectedCircleId } = CircleContext.useSelector(
-    (state) => state.context
+    (state) => state.context,
   );
   const selectedCircle = getCircleById(circles, selectedCircleId);
 
